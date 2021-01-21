@@ -1,5 +1,6 @@
 package pe.com.starcode.testnapoleonsystem.main.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,7 +9,7 @@ import pe.com.starcode.testnapoleonsystem.R
 import pe.com.starcode.testnapoleonsystem.base.room.Post
 import pe.com.starcode.testnapoleonsystem.databinding.ItemPostBinding
 
-class PostAdapter (private val list: List<Post>, private val listener:PostListener) :
+class PostAdapter (private val list: MutableList<Post>, private val listener:PostListener) :
     RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -27,11 +28,20 @@ class PostAdapter (private val list: List<Post>, private val listener:PostListen
         holder.itemPostBinding.cardView.setOnClickListener {
             listener.onclick(list[position])
         }
+        holder.itemPostBinding.remove.setOnClickListener {
+            listener.remove(list[position])
+        }
+
     }
 
     fun updateItem(post:Post){
         var p = list.indexOf(post)
         notifyItemChanged(p)
+    }
+    fun itemRemove(post:Post){
+        list.remove(post)
+        notifyDataSetChanged()
+
     }
 
     inner class PostViewHolder(var itemPostBinding: ItemPostBinding) :

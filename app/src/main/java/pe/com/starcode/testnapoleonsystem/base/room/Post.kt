@@ -12,5 +12,7 @@ class Post {
     var title :String =""
     var userId:Int =0
     var state:Boolean =false
-    var isFavorite: Int =0 //1 = favorite, 0 = nothing
+    var favorite: Boolean =false
+    var nameUser :String =""
+    var emailUser :String =""
 }

@@ -28,4 +28,17 @@
         android:layout_above="@+id/lottie"
         />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/splash_own"
+        android:gravity="center"
+        android:fontFamily="@font/objective_light"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        />
+
+
 </RelativeLayout>

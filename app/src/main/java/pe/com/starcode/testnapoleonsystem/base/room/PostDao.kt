@@ -9,9 +9,15 @@ interface PostDao {
     fun insert(item: Post)
 
     @Query("SELECT *  FROM post ")
-    fun listAll(): List<Post>
+    fun listAll(): MutableList<Post>
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
     fun update(item: Post)
+
+    @Delete
+    fun remove(post: Post)
+
+    @Query("DELETE FROM post ")
+    fun deleteAll()
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,7 +14,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
+        android:paddingTop="10dp"
+        android:paddingStart="5dp"
+        android:paddingBottom="10dp"
+        android:paddingEnd="5dp"
         android:fillViewport="true"
         tools:context=".main.presentation.MainActivity">
 
@@ -21,12 +25,45 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+           <LinearLayout
+               android:id="@+id/bottoms"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:layout_alignParentTop="true"
+               android:gravity="center|right">
+
+
+               <ImageView
+                   android:id="@+id/refresh"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="5dp"
+                   android:src="@drawable/ic_refresh"
+                   android:onClick="@{()->viewModelMain.resfreshAll()}"
+                   android:padding="5dp"/>
+
+               <ImageView
+                   android:id="@+id/deleteAll"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/ic_remove_2"
+                   app:tint="@color/red"
+                   android:onClick="@{()->viewModelMain.deleteAll()}"
+                   android:layout_margin="5dp"
+                   android:padding="5dp"/>
+
+           </LinearLayout>
+
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerPost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:nestedScrollingEnabled="false"
-                android:layout_alignParentTop="true" />
+                android:layout_below="@+id/bottoms"/>
 
 
         </RelativeLayout>

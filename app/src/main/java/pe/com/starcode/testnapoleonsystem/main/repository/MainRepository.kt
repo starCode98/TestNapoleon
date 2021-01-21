@@ -10,10 +10,11 @@ class MainRepository(private val apiHelper: ApiHelper) {
 
     suspend fun getPosts() = apiHelper.getPosts()
 
-    fun savePost(body: PostResponse?, c: Context) :List<Post>?{
+    fun savePost(body: PostResponse?, c: Context) :MutableList<Post>?{
         if (body != null) {
             val db = DataBaseApp(c)
             var count = 0
+            db.postDao().deleteAll()
             body.forEach { item ->
                 var i = Post()
                 i.id = item.id
@@ -35,4 +36,16 @@ class MainRepository(private val apiHelper: ApiHelper) {
         val db = DataBaseApp(c)
         db.postDao().update(post)
     }
+
+    fun remove(post: Post, c: Context) {
+        val db = DataBaseApp(c)
+        db.postDao().remove(post)
+    }
+
+    suspend fun getUser(userId: Int) = apiHelper.getUser(userId)
+    fun removeAll(c: Context) {
+        val db = DataBaseApp(c)
+        db.postDao().deleteAll()
+    }
+
 }

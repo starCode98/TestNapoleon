@@ -7,6 +7,7 @@ import android.os.Handler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import pe.com.starcode.testnapoleonsystem.main.presentation.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -23,8 +24,8 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun goMain() {
-//        var intent = Intent(this@SplashActivity, MainActivity::class.java)
-//        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//        startActivity(intent)
+        var intent = Intent(this@SplashActivity, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 }

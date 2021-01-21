@@ -6,9 +6,11 @@
 
     <!--splash activity-->
     <string name="splash_text">Welcome</string>
+    <string name="splash_own">By Estrella B.M</string>
     <!--main activity-->
     <string name="main_error_internet">There is no Internet conection!</string>
     <string name="_main_item_post_tx">Unread</string>
     <string name="_main_detail_post_favorite"><u>Add to Favorites</u></string>
-    <string name="_main_detail_add_favorite_success">Was added to favorites successfully</string>
+    <string name="_main_detail_add_favorite_success">Was added to favorites successfully!</string>
+    <string name="_main_detail_add_favorite_deleted">Item deleted!</string>
 </resources>
