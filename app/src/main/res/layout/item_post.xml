@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itempost"
+            type="pe.com.starcode.testnapoleonsystem.base.room.Post" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/main_post_item_width"
+        app:cardCornerRadius="10dp"
+        android:layout_height="@dimen/main_post_item_height">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Hi Boy!...."
+                android:text="@{itempost.title}"
+                android:textSize="@dimen/text_large"
+                android:fontFamily="@font/objective_bold" />
+
+            <TextView
+                android:id="@+id/txBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Hi Boy!...."
+                android:text="@{itempost.body}"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="@dimen/text_medium"
+                android:fontFamily="@font/objective_light" />
+
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="right"
+                visible="@{itempost.state}"
+                android:text="@string/_main_item_post_tx"
+                android:textSize="@dimen/text_small"
+                android:background="@drawable/bg_item_post"
+                android:fontFamily="@font/objective_light" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
